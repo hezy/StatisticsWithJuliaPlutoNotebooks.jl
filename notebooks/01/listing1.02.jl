@@ -1,11 +1,15 @@
 ### A Pluto.jl notebook ###
-# v0.12.6
+# v0.19.39
 
 using Markdown
 using InteractiveUtils
 
 # ╔═╡ 5a98d3d0-1d31-11eb-0caf-5dca48313597
-using Pkg, DrWatson
+begin
+	using Pkg
+	Pkg.add("DrWatson")
+	using DrWatson
+end
 
 # ╔═╡ 61f78d42-1d31-11eb-31f1-63eb86dabf9f
 begin
