@@ -27,25 +27,44 @@ piProb1 = (P^100)[1,:]
 # ╔═╡ f2b43238-1d66-11eb-3713-c5c8f2d4af76
 md"##### Second way."
 
-# ╔═╡ f2b4d63e-1d66-11eb-3d9f-65ba9b1ac506
-begin
-	A = vcat((P' - I)[1:2,:],ones(3)')
-	b = [0 0 1]'
-	piProb2 = (A\b)[:, 1]
-end
+# ╔═╡ dc0d46c4-2d9e-497b-9da5-d15a3e9d9ff0
+A = vcat((P' - I)[1:2,:],ones(3)')
+
+# ╔═╡ b205ee55-e71e-4c39-a445-036da56c794a
+b = [0 0 1]'
+
+# ╔═╡ 4d0f4830-a213-4f81-bcc4-216fe4385426
+piProb2 = (A\b)[:, 1]
 
 # ╔═╡ f2c17bc8-1d66-11eb-0569-9b84c6b33cca
 md"##### Third way."
 
-# ╔═╡ f2c2e8fa-1d66-11eb-3421-3d76cd8c9a73
-begin
-	eigVecs = eigvecs(copy(P'))
-	highestVec = eigVecs[:,findmax(abs.(eigvals(P)))[2]]
-	piProb3 = Array{Float64}(highestVec)/norm(highestVec,1)
-end
+# ╔═╡ 63e526f5-2cff-4a5f-975a-359926cd5548
+eigVecs = eigvecs(copy(P'))
+
+# ╔═╡ 736043cf-4628-45e7-a29e-073599ac5eb8
+highestVec = eigVecs[:,findmax(abs.(eigvals(P)))[2]]
+
+# ╔═╡ 8f497ef4-85b2-4b63-aa97-831acab8520e
+piProb3 = Array{Float64}(highestVec)/norm(highestVec,1)
 
 # ╔═╡ f2d180ba-1d66-11eb-216b-e3e640811323
 md"##### Fourth way."
+
+# ╔═╡ 51f64383-da80-4587-83c0-8cd583de2deb
+zeros(Int,3)
+
+# ╔═╡ 00cb2e94-0037-43b8-9436-298797364b03
+s = 1
+
+# ╔═╡ 62285d21-4137-4ad8-af4c-a0d750c79487
+ns = [0, 0, 0]
+
+# ╔═╡ 8dbba35a-5e1d-445d-9dae-3f12cfa5ae65
+ns[s] += 1
+
+# ╔═╡ 94bd3de0-cf3c-4ccc-af2e-2dce33b170d1
+ns
 
 # ╔═╡ f2da9662-1d66-11eb-1f95-3da69865d370
 begin
@@ -372,10 +391,19 @@ version = "5.1.1+0"
 # ╟─f2a0c444-1d66-11eb-0f37-99e69755fe8f
 # ╠═f2a67846-1d66-11eb-022c-6f0a51c33a42
 # ╟─f2b43238-1d66-11eb-3713-c5c8f2d4af76
-# ╠═f2b4d63e-1d66-11eb-3d9f-65ba9b1ac506
+# ╠═dc0d46c4-2d9e-497b-9da5-d15a3e9d9ff0
+# ╠═b205ee55-e71e-4c39-a445-036da56c794a
+# ╠═4d0f4830-a213-4f81-bcc4-216fe4385426
 # ╟─f2c17bc8-1d66-11eb-0569-9b84c6b33cca
-# ╠═f2c2e8fa-1d66-11eb-3421-3d76cd8c9a73
+# ╠═63e526f5-2cff-4a5f-975a-359926cd5548
+# ╠═736043cf-4628-45e7-a29e-073599ac5eb8
+# ╠═8f497ef4-85b2-4b63-aa97-831acab8520e
 # ╟─f2d180ba-1d66-11eb-216b-e3e640811323
+# ╠═51f64383-da80-4587-83c0-8cd583de2deb
+# ╠═00cb2e94-0037-43b8-9436-298797364b03
+# ╠═62285d21-4137-4ad8-af4c-a0d750c79487
+# ╠═8dbba35a-5e1d-445d-9dae-3f12cfa5ae65
+# ╠═94bd3de0-cf3c-4ccc-af2e-2dce33b170d1
 # ╠═f2da9662-1d66-11eb-1f95-3da69865d370
 # ╠═f2dbd9d2-1d66-11eb-12b9-af2d7f1f73da
 # ╟─f2e37750-1d66-11eb-3f4e-e7b249fb2052
