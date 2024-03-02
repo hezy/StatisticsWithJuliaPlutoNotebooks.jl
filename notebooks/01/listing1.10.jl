@@ -22,22 +22,25 @@ begin
 	x, y = -5:0.1:5 , -5:0.1:5
 	plot(x, [f0.(x), f2.(x)], 
 		c=[:blue :red], xlims=(-5, 5), legend=:top,
-		ylims=(-5, 25), ylabel=L"f(x,⋅)", label=["f(x, 0)" "f(x, 2)"])
-	p1 = annotate!(-1, -0.2, text("Minimum = (0,0)", :left, :top, 10))
+		ylims=(-5, 25), ylabel="f(x,⋅)", xlabel="x", label=["f(x, 0)" "f(x, 2)"])
+	p1 = annotate!(-1, -0.2, text("(0,0 ) - the minimum \n of f(x,0)", :left, :top, 10))
 end
 
 # ╔═╡ ace462fa-1d69-11eb-2b31-c1c9efe2376f
 begin
 	z = [ f(x,y) for y in y, x in x ]
-	p2 = surface(x, y, z, c=cgrad([:blue, :red]), legend=:none, ylabel="y", zlabel="f(x,y)")
+	p2 = surface(x, y, z, c=cgrad([:blue, :red]), legend=:none, xlabel="x", ylabel="y", zlabel="f(x,y)")
 end
 
 # ╔═╡ acf332f0-1d69-11eb-09df-43d188f0b58d
 begin
 	M = z[1:10,1:10]
-	p3 = heatmap(M, c=cgrad([:blue, :red]), yflip=true, ylabel="y",  
+	p3 = heatmap(M, c=cgrad([:blue, :red]), yflip=true, xlabel="x", ylabel="y",  
 		xticks=([1:10;], x), yticks=([1:10;], y))
 end
+
+# ╔═╡ cbba7edd-2737-4f06-b293-89f34c94a16e
+plot(p1, p2, p3, layout=(1,3), size=(1000,400))
 
 # ╔═╡ ad012874-1d69-11eb-24a0-e936c7c266d5
 md"## End of listing 1.10"
@@ -1116,6 +1119,7 @@ version = "1.4.1+1"
 # ╠═ace3c478-1d69-11eb-0a4d-f191cf032e78
 # ╠═ace462fa-1d69-11eb-2b31-c1c9efe2376f
 # ╠═acf332f0-1d69-11eb-09df-43d188f0b58d
+# ╠═cbba7edd-2737-4f06-b293-89f34c94a16e
 # ╟─ad012874-1d69-11eb-24a0-e936c7c266d5
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
