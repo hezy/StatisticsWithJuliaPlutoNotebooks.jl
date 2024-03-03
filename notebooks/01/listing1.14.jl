@@ -30,7 +30,7 @@ Random.seed!()
 
 # ╔═╡ b1edef30-1dfe-11eb-26fd-9782f1f70d10
 begin
-	N = 10^4
+	N = 10^5
 	data1     = [[rand(),rand()] for _ in 1:N]
 	indata   = filter((x)-> (norm(x) <= 1), data1)
 	outdata  = filter((x)-> (norm(x) > 1), data1)
@@ -53,12 +53,12 @@ begin
 	a, c, m = 69069, 1, 2^32
 	next(z) = (a*z + c) % m
 
-	#N = 10^6
-	data2 = Array{Float64,1}(undef, N)
+	N2 = 10^6
+	data2 = Array{Float64,1}(undef, N2)
 
 	x = 808
 	
-	for i in 1:N
+	for i in 1:N2
     	data2[i] = x/m
     	global x = next(x)
 	end
