@@ -12,7 +12,7 @@ md"## Listing 1.13"
 
 # ╔═╡ a80d6ee8-1dde-11eb-3a36-c1d068d268f0
 begin
-	img = load(datadir("stars.png"))
+	img = load("../../data/stars.png")
 	gImg = red.(img)*0.299 + green.(img)*0.587 + blue.(img)*0.114
 	rows, cols = size(img)
 end
