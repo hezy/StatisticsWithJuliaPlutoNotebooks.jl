@@ -30,11 +30,11 @@ Random.seed!()
 
 # ╔═╡ b1edef30-1dfe-11eb-26fd-9782f1f70d10
 begin
-	N = 10^5
-	data1     = [[rand(),rand()] for _ in 1:N]
+	N1 = 10^5
+	data1     = [[rand(),rand()] for _ in 1:N1]
 	indata   = filter((x)-> (norm(x) <= 1), data1)
 	outdata  = filter((x)-> (norm(x) > 1), data1)
-	piApprox = 4*length(indata)/N
+	piApprox = 4*length(indata)/N1
 	md"Pi Estimate: $(piApprox)"
 end
 
